@@ -6,7 +6,7 @@ const Card = (props) => {
         <div className="card">
             <img className="card-img-top" alt={ weather.weather[0].main }></img>
             <div className="card-body">
-            <h5 className="card-title">{ props.forecastDay }</h5>
+                <h5 className="card-title">{ props.forecastDay }</h5>
                 <ul className="card-text">
                     <li>{ weather.weather[0].main }</li>
                     <li>{ props.temp }º F</li>
