@@ -11,7 +11,16 @@ class App extends Component {
 			weatherData: {},
 			weather: [],
 			zipCode: '20132',
-			city: ''
+			city: '',
+			weekDays: [
+				'Sunday',
+				'Monday',
+				'Tuesday',
+				'Wednesday',
+				'Thursday',
+				'Friday',
+				'Saturday'
+			]
 		};
 	}
 
@@ -20,7 +29,6 @@ class App extends Component {
 	}
 
 	zipCallback = (zip) => {
-		console.log('new zip', zip);
 		this.setState({ zipCode: zip }, () => {
 			this.loadWeatherData();
 		});
@@ -36,13 +44,30 @@ class App extends Component {
 			})
 			.then((data) => {
 				this.setState({ weatherData: data });
+				let newWeather = [];
 
 				// copy into weather array
 				for (var i = 0; i < 5; i++) {
-					this.state.weather.push(this.state.weatherData.list[i]);
+					let forecast = data.list[i];
+					forecast.id = i;
+
+					// Calculate day of the week
+					let today = new Date();
+					let forecastIndex = today.getDay() + i;
+					forecastIndex =
+						forecastIndex > 6 ? forecastIndex - 7 : forecastIndex;
+					forecast.day =
+						i === 0 ? 'Today ' : this.state.weekDays[forecastIndex];
+
+					// Convert temp to F
+					forecast.main.temp = Math.round(
+						(forecast.main.temp - 273.15) * 1.8 + 32
+					);
+
+					newWeather.push(forecast);
 				}
 
-				this.setState({ city: data.city.name });
+				this.setState({ city: data.city.name, weather: newWeather });
 			})
 			.catch(console.log);
 	}
@@ -57,7 +82,7 @@ class App extends Component {
 						{this.state.city}
 					</div>
 				</div>
-				<Cards weather={this.state.weather} />
+				<Cards weather={this.state.weather} city={this.state.city} />
 				<div className="col-md-1"></div>
 			</div>
 		);

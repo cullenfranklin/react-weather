@@ -10,10 +10,10 @@ class Card extends Component {
 					alt={this.props.weather.weather[0].main}
 				></img>
 				<div className="card-body">
-					<h5 className="card-title">{this.props.forecastDay}</h5>
+					<h5 className="card-title">{this.props.weather.day}</h5>
 					<ul className="card-text">
 						<li>{this.props.weather.weather[0].main}</li>
-						<li>{this.props.temp}º F</li>
+						<li>{this.props.weather.main.temp}º F</li>
 					</ul>
 				</div>
 			</div>
