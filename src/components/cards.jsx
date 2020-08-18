@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Card from './card.jsx';
 
 class Cards extends Component {
-	state = {};
 	render() {
+		const { weather } = this.props;
 		return (
 			<div className="row">
 				<div className="col-md-1"></div>
-				{this.props.weather.map((forecast) => (
+				{weather.map((forecast) => (
 					<div className="col-md-2" key={forecast.id}>
 						<Card weather={forecast} />
 					</div>
