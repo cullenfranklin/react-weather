@@ -25,6 +25,7 @@ const Cards = (props) => {
                 // Calculate day of the week
                 let today = new Date();
                 let forecastDay = today.getDay() + index;
+                forecastDay = forecastDay > 6 ? forecastDay - 7 : forecastDay;
 
                 // Conver temp to F
                 let temp = Math.round((forecast.main.temp - 273.15) * 1.8 + 32);
@@ -44,5 +45,3 @@ const Cards = (props) => {
 }
 
 export { Cards }
-
-// https://getbootstrap.com/docs/4.4/components/card/
