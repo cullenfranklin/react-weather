@@ -24,7 +24,7 @@ class Title extends Component {
 						React Weather{' '}
 						<i className="fas fa-cloud-showers-heavy"></i>
 					</h1>
-					<p>Enter a zip code below:</p>
+					<p>Enter a US zip code below:</p>
 					<div className="input-group mb-3">
 						<input
 							type="text"

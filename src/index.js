@@ -6,12 +6,15 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+	faSun,
 	faCloud,
+	faCloudSun,
+	faCloudRain,
 	faCloudShowersHeavy
 } from '@fortawesome/free-solid-svg-icons';
 import * as serviceWorker from './serviceWorker';
 
-library.add(faCloud, faCloudShowersHeavy);
+library.add(faSun, faCloud, faCloudSun, faCloudRain, faCloudShowersHeavy);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
