@@ -79,11 +79,10 @@ class App extends Component {
 				<div className="row">
 					<div className="col-md-12 text-center">
 						<h3>Showing weather for...</h3>
-						{this.state.city}
+						<h2>{this.state.city}</h2>
 					</div>
 				</div>
 				<Cards weather={this.state.weather} city={this.state.city} />
-				<div className="col-md-1"></div>
 			</div>
 		);
 	}

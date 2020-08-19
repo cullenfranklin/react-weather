@@ -1,9 +1,12 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Card = ({ weather }) => {
 	return (
 		<div className="card">
-			<img className="card-img-top" alt={weather.weather[0].main}></img>
+			<h1 style={{ textAlign: 'center' }}>
+				<FontAwesomeIcon icon="cloud" />
+			</h1>
 			<div className="card-body">
 				<h5 className="card-title">{weather.day}</h5>
 				<ul className="card-text">

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Title extends Component {
 	constructor(props) {
@@ -18,10 +19,12 @@ class Title extends Component {
 
 	render() {
 		return (
-			<div className="row">
-				<div className="col-md-2"></div>
-				<div className="col-md-8 jumbotron">
-					<h1>React Weather</h1>
+			<div className="jumbotron">
+				<div className="container">
+					<h1>
+						React Weather{' '}
+						<i className="fas fa-cloud-showers-heavy"></i>
+					</h1>
 					<p>Enter a zip code below:</p>
 					<div className="input-group mb-3">
 						<input
@@ -33,7 +36,7 @@ class Title extends Component {
 						></input>
 						<div className="input-group-prepend">
 							<button
-								className="btn"
+								className="btn btn-primary"
 								type="button"
 								onClick={this.sendData}
 							>
@@ -42,7 +45,6 @@ class Title extends Component {
 						</div>
 					</div>
 				</div>
-				<div className="col-md-2"></div>
 			</div>
 		);
 	}
