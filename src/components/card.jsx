@@ -19,16 +19,24 @@ const Card = ({ weather }) => {
 
 	return (
 		<div className="card">
-			<h1 style={{ textAlign: 'center', fontSize: '70px' }}>
-				<FontAwesomeIcon icon={faIconName} />
-			</h1>
-			<div className="card-body">
-				<h5 className="card-title">{weather.day}</h5>
-				<ul className="card-text">
-					<li>{weatherName}</li>
-					<li>{weather.main.temp}º F</li>
+			<span className="border">
+				<h1 style={{ textAlign: 'center', fontSize: '70px' }}>
+					<FontAwesomeIcon icon={faIconName} />
+				</h1>
+				<div className="card-body">
+					<h5 className="card-title">{weather.day}</h5>
+					<p className="card-text">{weatherName}</p>
+				</div>
+				<ul className="list-group list-group-flush">
+					<li className="list-group-item">{weather.main.temp}º F</li>
+					<li className="list-group-item">
+						Humidity: {weather.main.humidity}
+					</li>
+					<li className="list-group-item">
+						Wind Speed: {weather.wind.speed} MPH
+					</li>
 				</ul>
-			</div>
+			</span>
 		</div>
 	);
 };

@@ -76,11 +76,9 @@ class App extends Component {
 		return (
 			<div>
 				<Title zipCodeCallback={this.zipCallback} />
-				<div className="row">
-					<div className="col-md-12 text-center">
-						<h3>Showing weather for...</h3>
-						<h2>{this.state.city}</h2>
-					</div>
+				<div className="col-md-12 text-center">
+					<h3>Showing weather for...</h3>
+					<h2>{this.state.city}</h2>
 				</div>
 				<Cards weather={this.state.weather} city={this.state.city} />
 			</div>
