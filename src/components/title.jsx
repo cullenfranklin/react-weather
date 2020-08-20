@@ -16,6 +16,13 @@ class Title extends Component {
 		this.setState({ zipInput: event.target.value });
 	};
 
+	enterPressed(event) {
+		const code = event.keyCode || event.which;
+		if (code === 13) {
+			this.sendData();
+		}
+	}
+
 	render() {
 		return (
 			<div className="jumbotron">
@@ -32,6 +39,7 @@ class Title extends Component {
 							placeholder="Zip Code"
 							aria-label="Zip Code"
 							onChange={this.handleInputChange}
+							onKeyPress={this.enterPressed.bind(this)}
 						></input>
 						<div className="input-group-prepend">
 							<button
