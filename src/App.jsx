@@ -12,6 +12,7 @@ class App extends Component {
 			weather: [],
 			zipCode: '20132',
 			city: '',
+			error: false,
 			weekDays: [
 				'Sunday',
 				'Monday',
@@ -43,7 +44,7 @@ class App extends Component {
 				return res.json();
 			})
 			.then((data) => {
-				this.setState({ weatherData: data });
+				this.setState({ weatherData: data, error: false });
 				let newWeather = [];
 
 				// copy into weather array
@@ -69,13 +70,19 @@ class App extends Component {
 
 				this.setState({ city: data.city.name, weather: newWeather });
 			})
-			.catch(console.log);
+			.catch((error) => {
+				console.error(error);
+				this.setState({ error: true });
+			});
 	}
 
 	render() {
 		return (
 			<div>
-				<Title zipCodeCallback={this.zipCallback} />
+				<Title
+					zipCodeCallback={this.zipCallback}
+					isError={this.state.error}
+				/>
 				<div className="col-md-12 text-center">
 					<h3>Showing weather for...</h3>
 					<h2>{this.state.city}</h2>

@@ -43,6 +43,11 @@ class Title extends Component {
 							</button>
 						</div>
 					</div>
+					{this.props.isError && (
+						<div className="alert alert-warning" role="alert">
+							Error: City Not Found!
+						</div>
+					)}
 				</div>
 			</div>
 		);
